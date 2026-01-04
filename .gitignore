@@ -1,34 +1,100 @@
+# ==============================================================================
+# AspScript VS Code Extension - Git Ignore
+# ==============================================================================
+
+# -----------------------------------------------------------------------------
 # Dependencies
+# -----------------------------------------------------------------------------
 node_modules/
 package-lock.json
+yarn.lock
+pnpm-lock.yaml
 
-# Build artifacts
+# -----------------------------------------------------------------------------
+# Build Artifacts
+# -----------------------------------------------------------------------------
 *.vsix
+dist/
+out/
 *.log
 *.tgz
+*.tar.gz
 
-# Testing
+# -----------------------------------------------------------------------------
+# Testing & Coverage
+# -----------------------------------------------------------------------------
 .vscode-test/
 coverage/
 .nyc_output/
+*.test.js
+*.spec.js
 
-# IDE & OS
+# -----------------------------------------------------------------------------
+# IDE & Editor Settings
+# -----------------------------------------------------------------------------
 .vscode/
+!.vscode/extensions.json
+!.vscode/launch.json
 .idea/
-*.swp
-*.swo
-*~
+*.sublime-project
+*.sublime-workspace
+*.code-workspace
+
+# -----------------------------------------------------------------------------
+# OS Files
+# -----------------------------------------------------------------------------
 .DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
 Thumbs.db
 desktop.ini
 
-# Development files
-*.map
-*.orig
-.env
-.env.local
-
-# Temporary files
+# -----------------------------------------------------------------------------
+# Temporary Files
+# -----------------------------------------------------------------------------
+*.swp
+*.swo
+*~
+.tmp/
 tmp/
 temp/
 *.tmp
+*.bak
+*.backup
+
+# -----------------------------------------------------------------------------
+# Development Files
+# -----------------------------------------------------------------------------
+*.map
+*.orig
+.env
+.env.*
+!.env.example
+*.local
+
+# -----------------------------------------------------------------------------
+# Cache & Logs
+# -----------------------------------------------------------------------------
+.cache/
+.eslintcache
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+.pnpm-debug.log*
+
+# -----------------------------------------------------------------------------
+# Optional Files (keep in Git, exclude from package via .vscodeignore)
+# -----------------------------------------------------------------------------
+# Development documentation files are tracked but excluded from VSIX:
+# - DEVELOPMENT.md
+# - INSTALL.md
+# - PUBLISH-GUIDE.md
+# - PUBLISH-STATUS.md
+# - PROJECT-SUMMARY.md
+# - IMPROVEMENTS.md
+# - FINAL-STATUS.md
+# - LOCALIZATION-REPORT.md

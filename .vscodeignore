@@ -1,20 +1,65 @@
-# IDE & Build
+# ==============================================================================
+# AspScript VS Code Extension - VSIX Package Ignore
+# Excludes files from the published extension package
+# ==============================================================================
+
+# -----------------------------------------------------------------------------
+# Source Control
+# -----------------------------------------------------------------------------
+.git/**
+.github/**
+.gitignore
+.gitattributes
+
+# -----------------------------------------------------------------------------
+# IDE & Development Tools
+# -----------------------------------------------------------------------------
 .vscode/**
 .vscode-test/**
-.gitignore
-.yarnrc
-vsc-extension-quickstart.md
-**/jsconfig.json
-**/*.map
-**/.eslintrc.json
-**/*.ts
-!**/*.d.ts
+.idea/**
+*.code-workspace
 
-# Dependencies (exclude from package)
+# -----------------------------------------------------------------------------
+# Build & Development Files
+# -----------------------------------------------------------------------------
+tsconfig.json
+jsconfig.json
+.eslintrc.*
+.eslintignore
+.prettierrc.*
+.editorconfig
+webpack.config.js
+vite.config.js
+rollup.config.js
+
+# -----------------------------------------------------------------------------
+# Dependencies & Lock Files
+# -----------------------------------------------------------------------------
 node_modules/**
 package-lock.json
+yarn.lock
+pnpm-lock.yaml
+.yarnrc
+.npmrc
 
-# Development Documentation (exclude from package)
+# -----------------------------------------------------------------------------
+# Testing & Coverage
+# -----------------------------------------------------------------------------
+.vscode-test/**
+test/**
+tests/**
+**/*.test.js
+**/*.spec.js
+**/*.test.ts
+**/*.spec.ts
+coverage/**
+.nyc_output/**
+jest.config.*
+vitest.config.*
+
+# -----------------------------------------------------------------------------
+# Documentation (Development Only)
+# -----------------------------------------------------------------------------
 DEVELOPMENT.md
 INSTALL.md
 PUBLISH-GUIDE.md
@@ -22,9 +67,74 @@ PUBLISH-STATUS.md
 PROJECT-SUMMARY.md
 IMPROVEMENTS.md
 FINAL-STATUS.md
+LOCALIZATION-REPORT.md
+vsc-extension-quickstart.md
+CONTRIBUTING.md
 
-# Keep these in package:
+# -----------------------------------------------------------------------------
+# Source Files (if TypeScript)
+# -----------------------------------------------------------------------------
+src/**/*.ts
+!src/**/*.d.ts
+**/*.map
+
+# -----------------------------------------------------------------------------
+# Build Artifacts
+# -----------------------------------------------------------------------------
+*.vsix
+*.log
+*.tgz
+*.tar.gz
+dist/**/*.map
+out/**/*.map
+
+# -----------------------------------------------------------------------------
+# Temporary & System Files
+# -----------------------------------------------------------------------------
+.tmp/
+tmp/
+temp/
+*.tmp
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# -----------------------------------------------------------------------------
+# Environment & Configuration
+# -----------------------------------------------------------------------------
+.env
+.env.*
+!.env.example
+
+# -----------------------------------------------------------------------------
+# Test Samples (Optional - remove if you want to include them)
+# -----------------------------------------------------------------------------
+# test-samples/**
+
+# -----------------------------------------------------------------------------
+# IMPORTANT: Files to KEEP in package
+# -----------------------------------------------------------------------------
+# The following files MUST be included:
+# - README.md (Russian version)
+# - README.en.md (English version)
+# - CHANGELOG.md
+# - LICENSE
+# - package.json
+# - extension.js
+# - diagnostics.js
+# - syntaxes/
+# - snippets/
+# - icons/
+# - fileicons/
+# - language-configuration.json
+# - icon.png
+
+# Explicitly include important files (use ! to negate ignore)
 !README.md
 !README.en.md
 !CHANGELOG.md
 !LICENSE
+!icon.png
