@@ -1,8 +1,8 @@
 {
   "name": "aspscript",
   "displayName": "AspScript",
-  "description": "AspScript language support for Visual Studio Code - Zero-runtime reactive framework",
-  "version": "1.0.1",
+  "description": "AspScript v1.3.0 language support - Advanced compiler with conditional directives, loops, and slots",
+  "version": "1.3.0",
   "publisher": "AspScript-vscode",
   "icon": "icon.png",
   "engines": {

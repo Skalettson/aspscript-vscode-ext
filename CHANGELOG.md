@@ -2,6 +2,33 @@
 
 All notable changes to the "aspscript" extension will be documented in this file.
 
+## [1.3.0] - 2026-01-04
+
+### 🎉 Major Release - AspScript Framework v1.3.0
+
+#### Added
+- 🔀 **Conditional directives support**: `{#if}`, `{:else if}`, `{:else}`, `{/if}`
+- 🔄 **Loop directives support**: `{#for}`, `{#each}` with `:key` attribute
+- 🧩 **Component props and events**: Full support for `export const props` and `export const emits`
+- 📦 **Slots support**: Named and default slots for content projection
+- ⚠️ **Enhanced error messages**: Detailed compiler diagnostics
+- 🔗 **npm package links**: Direct links to published AspScript packages
+- 📚 **Updated documentation**: Complete guide for v1.3.0 features
+
+#### Updated
+- ✨ Syntax highlighting for new directive syntax
+- 📝 Snippets for conditional blocks and loops
+- 💡 IntelliSense with new v1.3.0 APIs
+- 🎨 Enhanced hover information with v1.3.0 examples
+
+#### npm Packages
+- [@aspscript/core@1.3.0](https://www.npmjs.com/package/@aspscript/core)
+- [@aspscript/compiler@1.3.0](https://www.npmjs.com/package/@aspscript/compiler)
+- [@aspscript/cli@1.3.0](https://www.npmjs.com/package/@aspscript/cli)
+- [@aspscript/vite-plugin@1.3.0](https://www.npmjs.com/package/@aspscript/vite-plugin)
+
+---
+
 ## [1.0.1] - 2026-01-04
 
 ### Added
