@@ -1,0 +1,32 @@
+{
+  "fileExtensions": {
+    "aspc": "_aspc"
+  },
+  "fileNames": {},
+  "file": "_file",
+  "folder": "_folder",
+  "folderExpanded": "_folder_open",
+  "rootFolder": "_root_folder",
+  "rootFolderExpanded": "_root_folder_open",
+  "iconDefinitions": {
+    "_aspc": {
+      "iconPath": "../icons/file-icon.svg"
+    },
+    "_file": {
+      "iconPath": "../icons/file.svg"
+    },
+    "_folder": {
+      "iconPath": "../icons/folder.svg"
+    },
+    "_folder_open": {
+      "iconPath": "../icons/folder-open.svg"
+    },
+    "_root_folder": {
+      "iconPath": "../icons/root-folder.svg"
+    },
+    "_root_folder_open": {
+      "iconPath": "../icons/root-folder-open.svg"
+    }
+  }
+}
+

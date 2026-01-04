@@ -1,0 +1,203 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "AspScript",
+  "scopeName": "source.aspscript",
+  "patterns": [
+    {
+      "include": "#script-section"
+    },
+    {
+      "include": "#template-section"
+    },
+    {
+      "include": "#style-section"
+    },
+    {
+      "include": "#comments"
+    }
+  ],
+  "repository": {
+    "script-section": {
+      "begin": "^---\\s*$",
+      "end": "^---\\s*$",
+      "beginCaptures": {
+        "0": {
+          "name": "punctuation.definition.section.aspscript"
+        }
+      },
+      "endCaptures": {
+        "0": {
+          "name": "punctuation.definition.section.aspscript"
+        }
+      },
+      "patterns": [
+        {
+          "include": "#reactive-keywords"
+        },
+        {
+          "include": "#reactive-functions"
+        },
+        {
+          "include": "#javascript"
+        }
+      ]
+    },
+    "reactive-keywords": {
+      "patterns": [
+        {
+          "match": "\\$state\\b",
+          "name": "keyword.control.aspscript storage.type.aspscript"
+        },
+        {
+          "match": "\\$computed\\b",
+          "name": "keyword.control.aspscript storage.type.aspscript"
+        },
+        {
+          "match": "\\$effect\\b",
+          "name": "keyword.control.aspscript storage.type.aspscript"
+        },
+        {
+          "match": "\\$global\\b",
+          "name": "keyword.control.aspscript storage.type.aspscript"
+        },
+        {
+          "match": "^\\s*\\$:",
+          "name": "keyword.operator.aspscript"
+        }
+      ]
+    },
+    "reactive-functions": {
+      "patterns": [
+        {
+          "match": "\\b(onMount|onDestroy|onUpdate|beforeMount|afterMount)\\b",
+          "name": "support.function.aspscript"
+        }
+      ]
+    },
+    "template-section": {
+      "begin": "(?<=^---\\s*$)",
+      "end": "(?=<style)",
+      "patterns": [
+        {
+          "include": "#html-content"
+        },
+        {
+          "include": "#interpolation"
+        },
+        {
+          "include": "#directives"
+        }
+      ]
+    },
+    "html-content": {
+      "patterns": [
+        {
+          "include": "text.html.basic"
+        }
+      ]
+    },
+    "interpolation": {
+      "begin": "\\{",
+      "end": "\\}",
+      "beginCaptures": {
+        "0": {
+          "name": "punctuation.definition.template-expression.begin.aspscript"
+        }
+      },
+      "endCaptures": {
+        "0": {
+          "name": "punctuation.definition.template-expression.end.aspscript"
+        }
+      },
+      "patterns": [
+        {
+          "include": "#javascript-expression"
+        }
+      ],
+      "name": "meta.embedded.expression.aspscript"
+    },
+    "directives": {
+      "patterns": [
+        {
+          "match": "(@[a-zA-Z][a-zA-Z0-9-]*)",
+          "name": "entity.other.attribute-name.directive.aspscript"
+        },
+        {
+          "match": "(#[a-zA-Z][a-zA-Z0-9-]*)",
+          "name": "entity.other.attribute-name.directive.aspscript"
+        },
+        {
+          "match": "(:[a-zA-Z][a-zA-Z0-9-]*)",
+          "name": "entity.other.attribute-name.directive.aspscript"
+        }
+      ]
+    },
+    "style-section": {
+      "begin": "<style([^>]*)>",
+      "end": "</style>",
+      "beginCaptures": {
+        "0": {
+          "name": "punctuation.definition.tag.begin.html"
+        },
+        "1": {
+          "patterns": [
+            {
+              "include": "#tag-attributes"
+            }
+          ]
+        }
+      },
+      "endCaptures": {
+        "0": {
+          "name": "punctuation.definition.tag.end.html"
+        }
+      },
+      "patterns": [
+        {
+          "include": "source.css"
+        },
+        {
+          "include": "source.scss"
+        }
+      ],
+      "contentName": "source.css.embedded.html"
+    },
+    "tag-attributes": {
+      "patterns": [
+        {
+          "match": "\\b(lang|scoped)\\b",
+          "name": "entity.other.attribute-name.html"
+        }
+      ]
+    },
+    "javascript": {
+      "patterns": [
+        {
+          "include": "source.js"
+        }
+      ]
+    },
+    "javascript-expression": {
+      "patterns": [
+        {
+          "include": "source.js"
+        }
+      ]
+    },
+    "comments": {
+      "patterns": [
+        {
+          "begin": "//",
+          "end": "$",
+          "name": "comment.line.double-slash.aspscript"
+        },
+        {
+          "begin": "/\\*",
+          "end": "\\*/",
+          "name": "comment.block.aspscript"
+        }
+      ]
+    }
+  }
+}
+

@@ -1,0 +1,34 @@
+# Dependencies
+node_modules/
+package-lock.json
+
+# Build artifacts
+*.vsix
+*.log
+*.tgz
+
+# Testing
+.vscode-test/
+coverage/
+.nyc_output/
+
+# IDE & OS
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Development files
+*.map
+*.orig
+.env
+.env.local
+
+# Temporary files
+tmp/
+temp/
+*.tmp

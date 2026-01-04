@@ -1,0 +1,178 @@
+---
+// Form Component with Validation
+let name = $state('')
+let email = $state('')
+let message = $state('')
+let submitted = $state(false)
+
+$: isValid = name.trim() !== '' && email.includes('@')
+$: nameError = name.trim() === '' ? 'Name is required' : ''
+$: emailError = !email.includes('@') ? 'Invalid email' : ''
+
+function handleSubmit(e) {
+  e.preventDefault()
+  
+  if (isValid) {
+    console.log('Form submitted:', { name, email, message })
+    submitted = true
+    
+    setTimeout(() => {
+      submitted = false
+      resetForm()
+    }, 3000)
+  }
+}
+
+function resetForm() {
+  name = ''
+  email = ''
+  message = ''
+}
+
+onMount(() => {
+  console.log('Form component mounted')
+})
+---
+
+<form @submit="handleSubmit" class="contact-form">
+  <h2>Contact Us</h2>
+  
+  <div class="form-group">
+    <label for="name">Name *</label>
+    <input 
+      type="text" 
+      id="name"
+      #bind="name" 
+      placeholder="Your name"
+      :class="nameError ? 'error' : ''"
+    />
+    <span #if="nameError" class="error-message">{nameError}</span>
+  </div>
+  
+  <div class="form-group">
+    <label for="email">Email *</label>
+    <input 
+      type="email" 
+      id="email"
+      #bind="email" 
+      placeholder="your@email.com"
+      :class="emailError ? 'error' : ''"
+    />
+    <span #if="emailError" class="error-message">{emailError}</span>
+  </div>
+  
+  <div class="form-group">
+    <label for="message">Message</label>
+    <textarea 
+      id="message"
+      #bind="message" 
+      placeholder="Your message"
+      rows="4"
+    ></textarea>
+  </div>
+  
+  <button type="submit" :class="isValid ? 'btn-primary' : 'btn-disabled'">
+    Send Message
+  </button>
+  
+  <div #if="submitted" class="success-message">
+    ✓ Message sent successfully!
+  </div>
+</form>
+
+<style lang="scss">
+$primary-color: #667eea;
+$error-color: #dc3545;
+$success-color: #28a745;
+
+.contact-form {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 2rem;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  
+  h2 {
+    margin: 0 0 2rem 0;
+    text-align: center;
+    color: $primary-color;
+  }
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+  
+  label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: #333;
+  }
+  
+  input,
+  textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+    
+    &:focus {
+      outline: none;
+      border-color: $primary-color;
+    }
+    
+    &.error {
+      border-color: $error-color;
+    }
+  }
+}
+
+.error-message {
+  display: block;
+  margin-top: 0.25rem;
+  font-size: 0.875rem;
+  color: $error-color;
+}
+
+.btn-primary,
+.btn-disabled {
+  width: 100%;
+  padding: 1rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, $primary-color, #764ba2);
+  color: white;
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba($primary-color, 0.4);
+  }
+}
+
+.btn-disabled {
+  background: #ccc;
+  color: #666;
+  cursor: not-allowed;
+}
+
+.success-message {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: $success-color;
+  color: white;
+  border-radius: 6px;
+  text-align: center;
+  font-weight: 600;
+}
+</style>
+

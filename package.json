@@ -1,0 +1,166 @@
+{
+  "name": "aspscript",
+  "displayName": "AspScript",
+  "description": "AspScript language support for Visual Studio Code - Zero-runtime reactive framework",
+  "version": "1.0.1",
+  "publisher": "AspScript-vscode",
+  "icon": "icon.png",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Programming Languages",
+    "Snippets",
+    "Formatters",
+    "Linters"
+  ],
+  "keywords": [
+    "aspscript",
+    "aspc",
+    "reactive",
+    "framework",
+    "compile-time",
+    "zero-runtime"
+  ],
+  "activationEvents": [
+    "onLanguage:aspscript"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "languages": [
+      {
+        "id": "aspscript",
+        "aliases": [
+          "AspScript",
+          "aspc"
+        ],
+        "extensions": [
+          ".aspc"
+        ],
+        "configuration": "./language-configuration.json",
+        "icon": {
+          "light": "./icons/file-icon.svg",
+          "dark": "./icons/file-icon.svg"
+        }
+      }
+    ],
+    "grammars": [
+      {
+        "language": "aspscript",
+        "scopeName": "source.aspscript",
+        "path": "./syntaxes/aspc.tmLanguage.json"
+      }
+    ],
+    "snippets": [
+      {
+        "language": "aspscript",
+        "path": "./snippets/aspc.json"
+      }
+    ],
+    "commands": [
+      {
+        "command": "aspscript.createComponent",
+        "title": "AspScript: Create Component"
+      },
+      {
+        "command": "aspscript.compile",
+        "title": "AspScript: Compile Current File"
+      },
+      {
+        "command": "aspscript.preview",
+        "title": "AspScript: Preview Component"
+      },
+      {
+        "command": "aspscript.format",
+        "title": "AspScript: Format Document"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "aspscript.compile",
+          "when": "resourceLangId == aspscript",
+          "group": "aspscript@1"
+        },
+        {
+          "command": "aspscript.preview",
+          "when": "resourceLangId == aspscript",
+          "group": "aspscript@2"
+        }
+      ],
+      "explorer/context": [
+        {
+          "command": "aspscript.createComponent",
+          "when": "explorerResourceIsFolder",
+          "group": "aspscript@1"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "AspScript",
+      "properties": {
+        "aspscript.compilerPath": {
+          "type": "string",
+          "default": "aspc",
+          "description": "Path to AspScript compiler"
+        },
+        "aspscript.autoCompile": {
+          "type": "boolean",
+          "default": false,
+          "description": "Automatically compile on save"
+        },
+        "aspscript.format.enable": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable formatting"
+        },
+        "aspscript.format.indentSize": {
+          "type": "number",
+          "default": 2,
+          "description": "Indent size for formatting"
+        },
+        "aspscript.lint.enable": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable linting"
+        },
+        "aspscript.preview.autoRefresh": {
+          "type": "boolean",
+          "default": true,
+          "description": "Auto refresh preview on save"
+        }
+      }
+    },
+    "iconThemes": [
+      {
+        "id": "aspscript-icons",
+        "label": "AspScript Icons",
+        "path": "./fileicons/aspscript-icon-theme.json"
+      }
+    ]
+  },
+  "scripts": {
+    "package": "vsce package",
+    "publish": "vsce publish"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/vscode": "^1.80.0",
+    "vsce": "^2.15.0",
+    "eslint": "^8.0.0"
+  },
+  "dependencies": {
+    "vscode-languageserver": "^9.0.1",
+    "vscode-languageserver-textdocument": "^1.0.11"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Skalettson/aspscript-vscode-ext"
+  },
+  "bugs": {
+    "url": "https://github.com/Skalettson/aspscript-vscode-ext/issues"
+  },
+  "homepage": "https://aspscript.dev",
+  "license": "MIT"
+}
+

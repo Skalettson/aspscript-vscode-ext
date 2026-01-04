@@ -1,0 +1,30 @@
+# IDE & Build
+.vscode/**
+.vscode-test/**
+.gitignore
+.yarnrc
+vsc-extension-quickstart.md
+**/jsconfig.json
+**/*.map
+**/.eslintrc.json
+**/*.ts
+!**/*.d.ts
+
+# Dependencies (exclude from package)
+node_modules/**
+package-lock.json
+
+# Development Documentation (exclude from package)
+DEVELOPMENT.md
+INSTALL.md
+PUBLISH-GUIDE.md
+PUBLISH-STATUS.md
+PROJECT-SUMMARY.md
+IMPROVEMENTS.md
+FINAL-STATUS.md
+
+# Keep these in package:
+!README.md
+!README.en.md
+!CHANGELOG.md
+!LICENSE

@@ -1,0 +1,288 @@
+{
+  "AspScript Component": {
+    "prefix": "aspc",
+    "body": [
+      "---",
+      "// ${1:Component} logic",
+      "let ${2:value} = $$state(${3:0})",
+      "",
+      "function ${4:handleClick}() {",
+      "  $2++",
+      "}",
+      "---",
+      "",
+      "<div class=\"${5:container}\">",
+      "  <h2>{$2}</h2>",
+      "  <button @click=\"$4\">Click me</button>",
+      "</div>",
+      "",
+      "<style>",
+      ".$5 {",
+      "  padding: 2rem;",
+      "  text-align: center;",
+      "}",
+      "</style>",
+      "$0"
+    ],
+    "description": "Create a basic AspScript component"
+  },
+  "Reactive State": {
+    "prefix": "state",
+    "body": [
+      "let ${1:name} = $$state(${2:initialValue})$0"
+    ],
+    "description": "Create a reactive state variable"
+  },
+  "Computed Value": {
+    "prefix": "computed",
+    "body": [
+      "$$: ${1:computed} = ${2:expression}$0"
+    ],
+    "description": "Create a computed value"
+  },
+  "Effect": {
+    "prefix": "effect",
+    "body": [
+      "$$: effect(() => {",
+      "  ${1:// side effect code}",
+      "})$0"
+    ],
+    "description": "Create an effect"
+  },
+  "Global State": {
+    "prefix": "global",
+    "body": [
+      "let ${1:name} = $$global(${2:initialValue}, '${3:key}')$0"
+    ],
+    "description": "Create a global state"
+  },
+  "OnMount": {
+    "prefix": "onMount",
+    "body": [
+      "onMount(() => {",
+      "  ${1:// mount logic}",
+      "})$0"
+    ],
+    "description": "OnMount lifecycle hook"
+  },
+  "OnDestroy": {
+    "prefix": "onDestroy",
+    "body": [
+      "onDestroy(() => {",
+      "  ${1:// cleanup logic}",
+      "})$0"
+    ],
+    "description": "OnDestroy lifecycle hook"
+  },
+  "Function": {
+    "prefix": "func",
+    "body": [
+      "function ${1:functionName}(${2:params}) {",
+      "  ${3:// function body}",
+      "}$0"
+    ],
+    "description": "Create a function"
+  },
+  "Async Function": {
+    "prefix": "afunc",
+    "body": [
+      "async function ${1:functionName}(${2:params}) {",
+      "  ${3:// async function body}",
+      "}$0"
+    ],
+    "description": "Create an async function"
+  },
+  "Template with Interpolation": {
+    "prefix": "template",
+    "body": [
+      "<div class=\"${1:container}\">",
+      "  <h2>{${2:title}}</h2>",
+      "  <p>{${3:description}}</p>",
+      "</div>$0"
+    ],
+    "description": "Create a template with interpolation"
+  },
+  "Button with Click": {
+    "prefix": "btn",
+    "body": [
+      "<button @click=\"${1:handleClick}\" class=\"${2:btn}\">",
+      "  ${3:Click me}",
+      "</button>$0"
+    ],
+    "description": "Create a button with click handler"
+  },
+  "Input with Bind": {
+    "prefix": "input",
+    "body": [
+      "<input",
+      "  type=\"${1:text}\"",
+      "  #bind=\"${2:value}\"",
+      "  placeholder=\"${3:Enter text}\"",
+      "  class=\"${4:input}\"",
+      "/>$0"
+    ],
+    "description": "Create an input with two-way binding"
+  },
+  "Conditional": {
+    "prefix": "if",
+    "body": [
+      "<div #if=\"${1:condition}\">",
+      "  ${2:<!-- content -->}",
+      "</div>$0"
+    ],
+    "description": "Create a conditional element"
+  },
+  "Loop": {
+    "prefix": "for",
+    "body": [
+      "<div #for=\"${1:item} in ${2:items}\">",
+      "  {$1.${3:name}}",
+      "</div>$0"
+    ],
+    "description": "Create a loop"
+  },
+  "Dynamic Class": {
+    "prefix": "class",
+    "body": [
+      ":class=\"${1:condition} ? '${2:active}' : '${3:inactive}'\"$0"
+    ],
+    "description": "Create a dynamic class binding"
+  },
+  "Style Block": {
+    "prefix": "style",
+    "body": [
+      "<style>",
+      ".${1:class-name} {",
+      "  ${2:property}: ${3:value};",
+      "}",
+      "</style>$0"
+    ],
+    "description": "Create a style block"
+  },
+  "SCSS Style Block": {
+    "prefix": "scss",
+    "body": [
+      "<style lang=\"scss\">",
+      "$$${1:primary-color}: ${2:#667eea};",
+      "",
+      ".${3:container} {",
+      "  ${4:property}: $$1;",
+      "  ",
+      "  &:hover {",
+      "    ${5:property}: ${6:value};",
+      "  }",
+      "}",
+      "</style>$0"
+    ],
+    "description": "Create an SCSS style block"
+  },
+  "Counter Component": {
+    "prefix": "counter",
+    "body": [
+      "---",
+      "// Counter component",
+      "let count = $$state(0)",
+      "$$: doubled = count * 2",
+      "",
+      "function increment() {",
+      "  count++",
+      "}",
+      "",
+      "function decrement() {",
+      "  count--",
+      "}",
+      "---",
+      "",
+      "<div class=\"counter\">",
+      "  <h2>Count: {count}</h2>",
+      "  <p>Doubled: {doubled}</p>",
+      "  ",
+      "  <div class=\"controls\">",
+      "    <button @click=\"decrement\" class=\"btn\">-</button>",
+      "    <button @click=\"increment\" class=\"btn\">+</button>",
+      "  </div>",
+      "</div>",
+      "",
+      "<style>",
+      ".counter {",
+      "  padding: 2rem;",
+      "  text-align: center;",
+      "}",
+      "",
+      ".controls {",
+      "  display: flex;",
+      "  gap: 1rem;",
+      "  justify-content: center;",
+      "  margin-top: 1rem;",
+      "}",
+      "",
+      ".btn {",
+      "  padding: 0.5rem 1rem;",
+      "  border: none;",
+      "  border-radius: 4px;",
+      "  cursor: pointer;",
+      "}",
+      "</style>$0"
+    ],
+    "description": "Create a complete counter component"
+  },
+  "Form Component": {
+    "prefix": "form",
+    "body": [
+      "---",
+      "// Form component",
+      "let name = $$state('')",
+      "let email = $$state('')",
+      "let submitted = $$state(false)",
+      "",
+      "function handleSubmit() {",
+      "  console.log('Form submitted:', { name, email })",
+      "  submitted = true",
+      "}",
+      "---",
+      "",
+      "<form class=\"form\" @submit.prevent=\"handleSubmit\">",
+      "  <div class=\"form-group\">",
+      "    <label>Name:</label>",
+      "    <input type=\"text\" #bind=\"name\" placeholder=\"Your name\" />",
+      "  </div>",
+      "  ",
+      "  <div class=\"form-group\">",
+      "    <label>Email:</label>",
+      "    <input type=\"email\" #bind=\"email\" placeholder=\"your@email.com\" />",
+      "  </div>",
+      "  ",
+      "  <button type=\"submit\" class=\"btn-submit\">Submit</button>",
+      "  ",
+      "  <div #if=\"submitted\" class=\"success\">",
+      "    Form submitted successfully!",
+      "  </div>",
+      "</form>",
+      "",
+      "<style>",
+      ".form {",
+      "  max-width: 400px;",
+      "  padding: 2rem;",
+      "}",
+      "",
+      ".form-group {",
+      "  margin-bottom: 1rem;",
+      "}",
+      "",
+      ".form-group label {",
+      "  display: block;",
+      "  margin-bottom: 0.5rem;",
+      "}",
+      "",
+      ".form-group input {",
+      "  width: 100%;",
+      "  padding: 0.5rem;",
+      "  border: 1px solid #ddd;",
+      "  border-radius: 4px;",
+      "}",
+      "</style>$0"
+    ],
+    "description": "Create a complete form component"
+  }
+}
+

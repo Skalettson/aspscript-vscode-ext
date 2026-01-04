@@ -1,0 +1,82 @@
+---
+// Basic Counter Component
+let count = $state(0)
+$: doubled = count * 2
+$: isEven = count % 2 === 0
+
+function increment() {
+  count++
+}
+
+function decrement() {
+  count--
+}
+
+function reset() {
+  count = 0
+}
+
+onMount(() => {
+  console.log('Counter mounted')
+})
+---
+
+<div class="counter">
+  <h2>Counter: {count}</h2>
+  <p>Doubled: {doubled}</p>
+  <p class="status">Status: {isEven ? 'Even' : 'Odd'}</p>
+  
+  <div class="controls">
+    <button @click="decrement" class="btn">-</button>
+    <button @click="reset" class="btn">Reset</button>
+    <button @click="increment" class="btn">+</button>
+  </div>
+</div>
+
+<style>
+.counter {
+  padding: 2rem;
+  text-align: center;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  border-radius: 12px;
+}
+
+.counter h2 {
+  margin: 0 0 1rem 0;
+  font-size: 2rem;
+}
+
+.status {
+  font-weight: 600;
+  margin: 1rem 0;
+}
+
+.controls {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.btn {
+  padding: 0.75rem 1.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  background: white;
+  color: #667eea;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+</style>
+
