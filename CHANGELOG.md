@@ -2,6 +2,35 @@
 
 All notable changes to the "aspscript" extension will be documented in this file.
 
+## [1.3.2] - 2026-01-04
+
+### Fixed
+- 🐛 **Linting & Diagnostics**: Completely rewrote the diagnostics system to properly understand AspScript v1.3.0 syntax
+  - ✅ Now correctly recognizes block directives: `{#if}`, `{:else if}`, `{:else}`, `{/if}`, `{#for}`, `{#each}`
+  - ✅ Validates matching of opening/closing block directives
+  - ✅ Properly handles `export const props` and `export const emits` syntax
+  - ✅ Fixed false positives for unclosed braces in multi-line blocks
+  - ✅ Better validation of event directives with modifiers (`@submit.prevent`)
+  - ✅ More accurate error messages with correct line numbers
+
+### Improved
+- 📝 Diagnostics now parse component into sections (script, template, style) for better accuracy
+- 🎯 Reduced false warnings for valid AspScript v1.3.0 code
+- ⚡ More intelligent directive validation
+
+---
+
+## [1.3.1] - 2026-01-04
+
+### Fixed
+- 🐛 **Icon theme conflict**: Removed full icon theme (`iconThemes`) that was overriding all file icons in VS Code. Now the extension only adds a custom icon for `.aspc` files via the `languages.icon` property, preserving all other file icons from your current icon theme.
+- 📦 Reduced extension size by removing unnecessary `fileicons/` directory
+
+### Technical Details
+The extension was incorrectly using `contributes.iconThemes` which creates a complete icon theme and overrides all file/folder icons. Changed to use `languages[].icon` which only adds an icon for the specific file type without affecting others.
+
+---
+
 ## [1.3.0] - 2026-01-04
 
 ### 🎉 Major Release - AspScript Framework v1.3.0
@@ -20,6 +49,9 @@ All notable changes to the "aspscript" extension will be documented in this file
 - 📝 Snippets for conditional blocks and loops
 - 💡 IntelliSense with new v1.3.0 APIs
 - 🎨 Enhanced hover information with v1.3.0 examples
+
+#### Fixed
+- 🐛 **Icon theme conflict**: Removed full icon theme that was overriding all file icons. Now only `.aspc` files have custom icons, preserving all other file icons from your current theme.
 
 #### npm Packages
 - [@aspscript/core@1.3.0](https://www.npmjs.com/package/@aspscript/core)

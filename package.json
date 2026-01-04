@@ -2,7 +2,7 @@
   "name": "aspscript",
   "displayName": "AspScript",
   "description": "AspScript v1.3.0 language support - Advanced compiler with conditional directives, loops, and slots",
-  "version": "1.3.0",
+  "version": "1.3.2",
   "publisher": "AspScript-vscode",
   "icon": "icon.png",
   "engines": {
@@ -130,14 +130,7 @@
           "description": "Auto refresh preview on save"
         }
       }
-    },
-    "iconThemes": [
-      {
-        "id": "aspscript-icons",
-        "label": "AspScript Icons",
-        "path": "./fileicons/aspscript-icon-theme.json"
-      }
-    ]
+    }
   },
   "scripts": {
     "package": "vsce package",
